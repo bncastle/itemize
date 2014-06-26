@@ -22,6 +22,9 @@
 #define SW_USE_EXT    		0
 #define SW_FORCE_OVERWRITE 	1
 
+//
+// Given a file pointer, this function
+// returns the size of the file in bytes
 long file_size(FILE *fp)
 {
 	long current = ftell(fp);
@@ -31,9 +34,12 @@ long file_size(FILE *fp)
 	return size;
 }
 
+//
+// Given a filename, this function returns
+// 1 if the file exists, 0 otherwise
+//
 int file_exists(const char *fname)
 {
-			
 	FILE *f = fopen(fname,"rb");
 	if(f != NULL)
 	{
@@ -45,7 +51,7 @@ int file_exists(const char *fname)
 
 //Checks if the given char pointer contains a switch
 //
-//returns: switch char, 0 if it was an empty switch, -1 if no switch found
+//returns: switch char, 0 if it was an empty switch, -1 if no switch found, otherwise returns the switch char
 //
 char is_switch(char *txt)
 {
